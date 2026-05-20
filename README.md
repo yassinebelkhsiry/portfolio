@@ -45,6 +45,16 @@ npm run start
 3. Lancer le déploiement avec la commande de build `npm run build`.
 4. Ajouter le vrai fichier CV dans `public/cv-bel-khsiry-yassine.pdf`.
 
+## Lien public GitHub Pages
+
+Le workflow `.github/workflows/pages.yml` déploie automatiquement le site sur GitHub Pages à chaque push sur `main`.
+
+URL prévue:
+
+```text
+https://yassinebelkhsiry.github.io/portfolio
+```
+
 ## Personnalisation rapide
 
 Les contenus principaux se trouvent dans `data/portfolio.ts`. Les sections sont dans `components/sections`. Les effets globaux et l'identité visuelle sont définis dans `app/globals.css` et `tailwind.config.ts`.
