@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #040812;
+  color: #eaf2ff;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  content: "";
+  background:
+    linear-gradient(rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(56, 189, 248, 0.14), transparent 26rem),
+    radial-gradient(circle at 82% 12%, rgba(139, 92, 246, 0.13), transparent 25rem),
+    #040812;
+  background-size: 56px 56px, 56px 56px, auto, auto, auto;
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, rgba(4, 8, 18, 0) 0%, rgba(4, 8, 18, 0.62) 100%);
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+}
+
+.glass {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(145deg, rgba(10, 22, 41, 0.78), rgba(8, 15, 30, 0.52));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(22px);
+}
+
+.section-shell {
+  width: min(1180px, calc(100vw - 32px));
+  margin-inline: auto;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #eaf2ff, #67e8f9 45%, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.18), transparent);
+  animation: pulse-scan 6s ease-in-out infinite;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.premium-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.35);
+}
